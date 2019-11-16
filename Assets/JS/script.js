@@ -1,17 +1,40 @@
+var cities = []
 
+var storedcities = JSON.parse(localStorage.getItem("cities"))
 
-$("#searchbutton").on("click", function() {
-    
-    $("#search").append(`
+function addcity() {
+    $("#searchedcities").append(`
     <div class=row>
         <div class=col style="background-color:white;">
-            <p>${$("#cityinput").val()}</p>
+            <button id="citybutton">${$("#cityinput").val()}</button>
         </div>
     </div>
-    `)
+    `)}
+
+function addstoredcities() {
+    for (  i = 0; i < storedcities.length; i++) {
+        $("#searchedcities").append(`
+        <div class=row>
+            <div class=col style="background-color:white;">
+                <button id="citybutton">${storedcities[i]}</button>
+            </div>
+        </div>
+        `)}
+    }
+
+addstoredcities()
+
+$("#searchbutton").on("click", function() {
+
+    addcity()
 
     var city = $("#cityinput").val();
     var apicityurl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=5ee812f36ab709a95afd0d464bdb5a4c"
+
+    cities.push(city)
+    console.log(cities);
+
+    localStorage.setItem("cities", JSON.stringify(cities));
 
     $.ajax({
         url: apicityurl,
@@ -23,7 +46,7 @@ $("#searchbutton").on("click", function() {
 
         var Fhigh = (response.main.temp_max - 273.15) * 1.8 + 32;
 
-        var Flow = (response.main.temp_min - 273.15) * 1.8 + 32;        
+        var Flow = (response.main.temp_min - 273.15) * 1.8 + 32;  
 
         $("#todaysforecast").html(`
         <h1>${response.name} (${moment().format('LLL')})</h1>
@@ -97,4 +120,11 @@ $("#searchbutton").on("click", function() {
     })
 
 })
+
+$("#clearbutton").on("click", function() {
+    localStorage.clear()
+
+    $("#searchedcities").html("")
+})
+
 
