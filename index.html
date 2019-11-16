@@ -1,0 +1,124 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="Assets\CSS\style.css">
+
+</head>
+
+<body>
+
+    <div id="header">
+
+        <h1>Weather Dashboard</h1>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-3" id="search">
+
+            <div class="row">
+
+                <div class="col-9">
+
+                    <h3>Search for a City:</h3>
+
+                    <input class="form-control form-control-lg" type="text" placeholder="" id="cityinput">
+
+                </div>
+
+                <div class="col-3" id="searchbuttoncol">
+
+                        <button type="button" class="btn btn-primary" id="searchbutton">Search</button>
+
+                </div>
+            
+            </div>
+
+        </div>
+
+        <div class="col-9" id="weatherbody">
+
+            <div class="row">
+
+                <div class="col" id="todaysforecast">
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <h3>5 Day Forecast:</h3>
+
+            </div>
+
+            <div class="row" id="fivedayforecastrow">
+
+                <div class="col">
+
+                        <div class="card">
+                            <div class="card-body" id="dayone">
+                                
+                            </div>
+                        </div>
+
+                </div>
+
+                <div class="col">
+
+                        <div class="card">
+                            <div class="card-body" id="daytwo">
+                                
+                            </div>
+                        </div>
+
+                </div>
+
+                <div class="col">
+
+                        <div class="card">
+                            <div class="card-body" id="daythree">
+                                
+                            </div>
+                        </div>
+
+                </div>
+
+                <div class="col">
+
+                        <div class="card">
+                            <div class="card-body" id="dayfour">
+                                
+                            </div>
+                        </div>
+
+                </div>
+
+                <div class="col">
+
+                    <div class="card">
+                        <div class="card-body" id="dayfive">
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    
+    <script src="Assets\JS\script.js"></script>
+
+</body>
+</html>
